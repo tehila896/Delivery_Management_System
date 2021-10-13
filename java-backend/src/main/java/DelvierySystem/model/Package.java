@@ -55,6 +55,31 @@ CarryingCapacity carryingCapacity;
 @Valid
 @JsonProperty
 UnitOfDistance unitOfDistance;
+public Package(@Valid String id, String description,
+		@Valid @NotNull(message = "customer_id can`t be null") String customer_id, @Valid String delivery_id,
+		@Valid PointD p_source, @Valid PointD p_destninon, @Valid Date dateStartOrder, @Valid Date dateEndOrder,
+		@Valid LinkedList<State> list_states, @Valid Boolean statosCompletedPackage, @Valid PayMentEvent payment,
+		@Valid CarryingCapacity carryingCapacity, @Valid UnitOfDistance unitOfDistance) {
+	super();
+	this.id = id;
+	this.description = description;
+	this.customer_id = customer_id;
+	this.delivery_id = delivery_id;
+	this.p_source = p_source;
+	this.p_destninon = p_destninon;
+	this.dateStartOrder = dateStartOrder;
+	this.dateEndOrder = dateEndOrder;
+	this.list_states = list_states;
+	this.statosCompletedPackage = statosCompletedPackage;
+	this.payment = payment;
+	this.carryingCapacity = carryingCapacity;
+	this.unitOfDistance = unitOfDistance;
+}
+
+public Package() {
+
+}
+
 public UnitOfDistance getUnitOfDistance() {
 	return unitOfDistance;
 }

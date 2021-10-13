@@ -125,5 +125,15 @@ public class DeliveryPerson extends User{
 		this.lock = lock;
 		this.current_delivery_id = current_delivery_id;
 	}
+	public DeliveryPerson() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public DeliveryPerson(String username, @Valid @NotNull(message = "firstName can`t be null") String firstName,
+			@Valid @NotNull(message = "lastName can`t be null") String lastName,
+			@Valid @Email(message = "email should be valid") String email, @NotBlank @Size(max = 120) String password) {
+		super(username, firstName, lastName, email, password);
+		// TODO Auto-generated constructor stub
+	}
 	
 }

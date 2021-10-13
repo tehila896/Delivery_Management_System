@@ -14,7 +14,7 @@ import DelvierySystem.model.Bacckoffice;
 
 @Service
 public class BackOfficeService implements BackofficeRepo{
-	private final String BACKOFFICE_CACHE = "CACHE_BACKOFFICE";
+	private final String BACKOFFICE_CACHE = "CACHE_BACKOFFIE";
 
 	@Autowired
 	RedisTemplate<String, Object> redisTemplate;

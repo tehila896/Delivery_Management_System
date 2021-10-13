@@ -27,7 +27,7 @@ import DelvierySystem.model.UnitOfDistance;
 @Service
 public class DeliveryPersonService implements DeliveryPersonRepo{
 	
-	private final String DELIVERYMEN_CACHE = "CACHE_DELIVERYPERSO";
+	private final String DELIVERYMEN_CACHE = "CACHE_DELIVEIRSYPERSO";
 
 	private static final Logger LOG = LoggerFactory.getLogger(DeliveryPersonController.class);
 

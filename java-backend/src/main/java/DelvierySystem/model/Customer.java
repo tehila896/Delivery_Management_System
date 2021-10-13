@@ -22,4 +22,10 @@ public class Customer extends User {
 		super(username, firstName, lastName, email, password);
 		// TODO Auto-generated constructor stub
 	}
+
+	public Customer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
 }

@@ -15,7 +15,7 @@ import DelvierySystem.model.UnitOfDistance;
 
 @Service
 public class PriceFieldService implements PriceFieldDao{
-	private final String PRICEFIELD_CACHE = "CACHE_PRICELIST";
+	private final String PRICEFIELD_CACHE = "CACHE_PRICESLIST";
 	@Autowired
 	RedisTemplate<String, Object> redisTemplate;
 	private HashOperations<String,String,PriceField> hashOperations;
