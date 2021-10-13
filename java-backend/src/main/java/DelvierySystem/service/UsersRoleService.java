@@ -13,7 +13,7 @@ import DelvierySystem.model.UsersRole;
 
 @Service
 public class UsersRoleService implements UsersRoleRepo{
-	private final String USER_CACHE = "CACHE_USERSROLE";
+	private final String USER_CACHE = "USERROLE_CACHE";
 
 	@Autowired
 	RedisTemplate<String, Object> redisTemplate;
