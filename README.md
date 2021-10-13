@@ -6,7 +6,7 @@ exec redis server
 
 exec kafka
 
-mvn install
+mvn clean install
 
 java -jar target/SpringbootRedisUsingJedis.jar
 
