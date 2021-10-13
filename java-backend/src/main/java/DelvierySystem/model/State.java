@@ -8,6 +8,9 @@ public class State implements Serializable{
 	String description;
 	LocalDateTime date;
 	PointD position;
+	public State() {
+
+	}
 	public String getDescription() {
 		return description;
 	}
