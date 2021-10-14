@@ -1,6 +1,6 @@
 # Delivery_Management_System
 
-**java backend**
+**java-backend**
 
 exec redis server
 
@@ -10,7 +10,7 @@ mvn clean install
 
 java -jar target/SpringbootRedisUsingJedis.jar
 
-**react fronted**
+**react-fronted**
 
 npm install
 
