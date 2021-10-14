@@ -11,6 +11,10 @@ public class PayMentEvent implements Serializable{
 	this.paymentType = paymentType;
 	this.value = value;
 }
+	
+	public PayMentEvent() {
+	}
+
 	public String getPaymentType() {
 		return paymentType;
 	}

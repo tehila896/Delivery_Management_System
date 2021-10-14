@@ -96,11 +96,7 @@ public class BackOfficeController {
 	// Url - http://localhost:10091/api/redis/add_priceField
 	@PostMapping("/add_priceField")
 	public ResponseEntity<String> save_priceField(@Valid @RequestBody final PriceField priceField) {
-		if (priceField.getId() == null) {
-			long count = servicePriceFieldService.findAll().size() + 1;
-			String id = String.valueOf(count);
-			priceField.setId(id);
-		}
+		priceField.setId("1");
 		servicePriceFieldService.save(priceField);
 		LOG.info("Saving the new priceField to the redis.");
 		return ResponseEntity.ok("A new priceField is saved!!!");

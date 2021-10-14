@@ -79,15 +79,15 @@ class PackageEdit extends Component {
     if (name == "carringDrop") {
       switch (value) {
         case '5KG': {
-          item.payment.paymentType = "FIVE_KG";
+          item.carryingCapacity = "FIVE_KG";
           break;
         }
         case '15KG': {
-          item.payment.paymentType = "FIFTEEN_KG";
+          item.carryingCapacity = "FIFTEEN_KG";
           break;
         }
         case '50KG': {
-          item.payment.paymentType = "FIFTY_KG";
+          item.carryingCapacity = "FIFTY_KG";
           break;
         }
       }

@@ -18,7 +18,7 @@ import DelvierySystem.model.State;
 
 @Service
 public class PackageService implements PackageRepo{
-	private final String PACKAGE_CACHE = "PACKAGE_CACHE";
+	private final String PACKAGE_CACHE = "PACKAGESO_CACHE";
 
 	@Autowired
 	RedisTemplate<String, Object> redisTemplate;

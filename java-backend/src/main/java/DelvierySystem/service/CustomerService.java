@@ -13,7 +13,7 @@ import DelvierySystem.model.Customer;
 @Service
 public class CustomerService implements CustomerRepo {
 
-	private final String CUSTOMER_CACHE = "CUSTOMER_CACHE";
+	private final String CUSTOMER_CACHE = "CUSTOMERS_CACHE";
 
 	@Autowired
 	RedisTemplate<String, Object> redisTemplate;

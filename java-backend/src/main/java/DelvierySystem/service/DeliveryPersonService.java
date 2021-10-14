@@ -27,7 +27,7 @@ import DelvierySystem.model.UnitOfDistance;
 @Service
 public class DeliveryPersonService implements DeliveryPersonRepo{
 	
-	private final String DELIVERYMEN_CACHE = "DELIVERYMEN_CACHE";
+	private final String DELIVERYMEN_CACHE = "DELIVERYPERSON_CACHE";
 
 	private static final Logger LOG = LoggerFactory.getLogger(DeliveryPersonController.class);
 
@@ -142,21 +142,24 @@ public class DeliveryPersonService implements DeliveryPersonRepo{
 		deliveryPackage.setDelivery_id(deliveryMen.getUsername());
 		deliveryPackage.setDateStartOrder(new Date());
 		servicePackage.save(deliveryPackage);
+		LOG.info( String.valueOf(deliveryPackage.getCarryingCapacity()));
 		final Map<String, PriceField> temp_priceList = servicePriceFieldService.findAll();
 		Double price = null;
-		int i = deliveryPackage.getCarryingCapacity().getValue();
+		CarryingCapacity key = deliveryPackage.getCarryingCapacity();
 		switch (deliveryPackage.getUnitOfDistance()) {
 		case FIVE_KM:
-			price = temp_priceList.get(temp_priceList.size() - 1).getColumns1().get(i);
+			price = temp_priceList.get("1").getColumns1().get(key);
 			break;
 		case FIFTEEN_KM:
-			price = temp_priceList.get(temp_priceList.size() - 1).getColumns2().get(i);
+			price = temp_priceList.get("1").getColumns2().get(key);
 			break;
 		case FIFTY_KM:
-			price = temp_priceList.get(temp_priceList.size() - 1).getColumns3().get(i);
+			price = temp_priceList.get("1").getColumns3().get(key);
 			break;
 		}
-		deliveryPackage.setPayment(new PayMentEvent("visa", price));
+		LOG.info( String.valueOf(price));
+		deliveryPackage.getPayment().setValue(price);
+		servicePackage.save(deliveryPackage);
 		// locked the DeliveryPerson when it is not profitable for the company
 		if (deliveryPackage.getPayment().getValue() > price) {
 			boolean lock = distributedLock.getLock(deliveryMen.getUsername());

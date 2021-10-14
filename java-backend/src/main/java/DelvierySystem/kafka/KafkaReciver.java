@@ -11,7 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
+import com.sun.tools.sjavac.Log;
+
 import DelvierySystem.controller.CustomerController;
+import DelvierySystem.controller.DeliveryPersonController;
 import DelvierySystem.model.Package;
 import DelvierySystem.service.DeliveryPersonService;
 import DelvierySystem.service.PackageService;
@@ -27,17 +30,17 @@ public class KafkaReciver {
 	
 	@Autowired
 	KafkaSender kafkaSender;
-	private static final Logger LOG = LoggerFactory.getLogger(CustomerController.class);
+	private static final Logger LOG = LoggerFactory.getLogger(KafkaReciver.class);
 
 	@KafkaListener(topics = "packageIdd_topic", groupId = "packages", concurrency = "4")
 	public void listenGroupFoo(String package_id) {
 		Package delveryPackage=packageService.findById(package_id);
 		Boolean flag=deliveryMenService.calclute_Distance(delveryPackage);
-		if(flag==false)
-		{
-			kafkaSender.send(package_id);
-			return;
-		}
+//		if(flag==false)
+//		{
+//			kafkaSender.send(package_id);
+//			return;
+//		}
 		LOG.info("recived"+package_id);
 		System.out.println("Proccessing message with thread id: " + Thread.currentThread().getName());
 	    System.out.println("Received Message in group packages: " + package_id);
